@@ -22,21 +22,8 @@ class ProposalPage extends StatefulWidget {
 }
 
 class _ProposalPageState extends State<ProposalPage> {
-  int noButtonClickCount = 0;
-
-  final List<String> noButtonTexts = [
-    'No',
-    'You Sure?',
-    'Pookie Please',
-    'One Last Chance',
-    'Okay Fine'
-  ];
-
   @override
   Widget build(BuildContext context) {
-    double yesButtonWidth = 150 + noButtonClickCount * 10;
-    double yesButtonHeight = 50 + noButtonClickCount * 5;
-
     return Scaffold(
       backgroundColor: Colors.pink.shade100,
       body: Center(
@@ -47,8 +34,8 @@ class _ProposalPageState extends State<ProposalPage> {
             Text(
               'Will you be my Valentine?',
               style: GoogleFonts.montserrat(
-                color: Colors.red,
-                fontSize: 24,
+                  color: Colors.red,
+                  fontSize: 24
               ),
             ),
 
@@ -63,40 +50,15 @@ class _ProposalPageState extends State<ProposalPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CelebrationPage(isYes: true),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    'Yes',
-                    style: GoogleFonts.montserrat(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18 + noButtonClickCount * 2,
-                    ),
-                  ),
+                  onPressed: () => _handleAnswer(true), // Pass true for 'yes'
+                  child: Text('Yes', style: GoogleFonts.montserrat(color: Colors.pink.shade100, fontWeight: FontWeight.bold),),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.green,
-                    minimumSize: Size(yesButtonWidth, yesButtonHeight),
+                    backgroundColor: Colors.red,
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      noButtonClickCount = (noButtonClickCount + 1) % noButtonTexts.length;
-                    });
-                  },
-                  child: Text(
-                    noButtonTexts[noButtonClickCount],
-                    style: GoogleFonts.montserrat(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  onPressed: () => _handleAnswer(false), // Pass false for 'no'
+                  child: Text('No', style: GoogleFonts.montserrat(color: Colors.pink.shade100, fontWeight: FontWeight.bold),),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                   ),
@@ -107,5 +69,23 @@ class _ProposalPageState extends State<ProposalPage> {
         ),
       ),
     );
+  }
+
+  void _handleAnswer(bool isYes) {
+    if (isYes) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => CelebrationPage(isYes: isYes),
+        ),
+      );
+    } else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => RejectionPage(isYes: isYes),
+        ),
+      );
+    }
   }
 }
