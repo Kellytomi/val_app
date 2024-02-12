@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'celebration.dart'; // Assuming your celebration screen is in 'celebration.dart'
-import 'rejection.dart'; // Import the rejection screen
+import 'celebration.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
@@ -11,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Valentine Proposal',
       home: ProposalPage(),
-      debugShowCheckedModeBanner: false, // Set debugShowCheckedModeBanner to falsefl
+      debugShowCheckedModeBanner: false,
     );
   }
 }
