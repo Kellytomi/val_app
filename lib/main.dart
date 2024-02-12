@@ -51,14 +51,14 @@ class _ProposalPageState extends State<ProposalPage> {
               children: [
                 ElevatedButton(
                   onPressed: () => _handleAnswer(true), // Pass true for 'yes'
-                  child: Text('Yes', style: GoogleFonts.montserrat(color: Colors.pink.shade100),),
+                  child: Text('Yes', style: GoogleFonts.montserrat(color: Colors.pink.shade100, fontWeight: FontWeight.bold),),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                   ),
                 ),
                 ElevatedButton(
                   onPressed: () => _handleAnswer(false), // Pass false for 'no'
-                  child: Text('No', style: GoogleFonts.montserrat(color: Colors.pink.shade100),),
+                  child: Text('No', style: GoogleFonts.montserrat(color: Colors.pink.shade100, fontWeight: FontWeight.bold),),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                   ),
