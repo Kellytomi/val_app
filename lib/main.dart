@@ -74,7 +74,7 @@ class _ProposalPageState extends State<ProposalPage> {
                   child: Text(
                     'Yes',
                     style: GoogleFonts.montserrat(
-                      color: Colors.pink.shade100,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 18 + noButtonClickCount * 2,
                     ),
@@ -93,7 +93,7 @@ class _ProposalPageState extends State<ProposalPage> {
                   child: Text(
                     noButtonTexts[noButtonClickCount],
                     style: GoogleFonts.montserrat(
-                      color: Colors.pink.shade100,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
