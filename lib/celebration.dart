@@ -8,7 +8,6 @@ class CelebrationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red, // Red background
       body: Stack(
         children: [
           // GIF as background
