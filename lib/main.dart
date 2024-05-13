@@ -79,7 +79,7 @@ class _ProposalPageState extends State<ProposalPage> {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.green,
+                    backgroundColor: Colors.green,
                     minimumSize: Size(yesButtonWidth, yesButtonHeight),
                   ),
                 ),
