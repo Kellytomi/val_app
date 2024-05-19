@@ -4,11 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CelebrationPage extends StatelessWidget {
   final bool isYes;
-  CelebrationPage({required this.isYes});
+  const CelebrationPage({super.key, required this.isYes});
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       const url = 'https://open.spotify.com/playlist/5DgCfnfTrO7zrNpXYwHn9U?si=dda6466205b84f14';
       launch(url);
     });

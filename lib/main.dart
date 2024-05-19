@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'celebration.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'For Angel',
       home: ProposalPage(),
       debugShowCheckedModeBanner: false,
@@ -16,6 +19,8 @@ class MyApp extends StatelessWidget {
 }
 
 class ProposalPage extends StatefulWidget {
+  const ProposalPage({super.key});
+
   @override
   _ProposalPageState createState() => _ProposalPageState();
 }
@@ -37,26 +42,26 @@ class _ProposalPageState extends State<ProposalPage> {
     double yesButtonHeight = 50 + noButtonClickCount * 5;
 
     return Scaffold(
-      backgroundColor: Colors.pink.shade100,
+      backgroundColor: Colors.blue.shade100,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Place your question text here
             Text(
-              'Will you be my Valentine?',
+              'Will you be my GIRLFRIEND?',
               style: GoogleFonts.montserrat(
                 color: Colors.red,
-                fontSize: 24,
+                fontSize: 24, fontWeight:FontWeight.bold
               ),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // Your GIF will go here
             Image.asset('assets/be mine.gif'), // Adjust the path as per your project structure
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -66,10 +71,14 @@ class _ProposalPageState extends State<ProposalPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CelebrationPage(isYes: true),
+                        builder: (context) => const CelebrationPage(isYes: true),
                       ),
                     );
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    minimumSize: Size(yesButtonWidth, yesButtonHeight),
+                  ),
                   child: Text(
                     'Yes',
                     style: GoogleFonts.montserrat(
@@ -78,10 +87,6 @@ class _ProposalPageState extends State<ProposalPage> {
                       fontSize: 18 + noButtonClickCount * 2,
                     ),
                   ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    minimumSize: Size(yesButtonWidth, yesButtonHeight),
-                  ),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -89,15 +94,15 @@ class _ProposalPageState extends State<ProposalPage> {
                       noButtonClickCount = (noButtonClickCount + 1) % noButtonTexts.length;
                     });
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                  ),
                   child: Text(
                     noButtonTexts[noButtonClickCount],
                     style: GoogleFonts.montserrat(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
                   ),
                 ),
               ],
