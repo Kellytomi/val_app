@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'For Angel',
+      title: 'For Kemi',
       home: ProposalPage(),
       debugShowCheckedModeBanner: false,
     );
@@ -59,7 +59,7 @@ class _ProposalPageState extends State<ProposalPage> {
             const SizedBox(height: 20),
 
             // Your GIF will go here
-            Image.asset('assets/be mine.gif'), // Adjust the path as per your project structure
+            Image.asset('assets/bm.gif'), // Adjust the path as per your project structure
 
             const SizedBox(height: 20),
 
